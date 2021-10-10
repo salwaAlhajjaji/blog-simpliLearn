@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog</title>
+	<link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+	<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+	<!-- https://fonts.google.com/ -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/templatemo-video-catalog.css">
+	<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+</head>
+
+
+<body>
+	<div class="tm-page-wrap mx-auto">
+		<div class="position-relative">
+			<div class="potition-absolute tm-site-header">
+				<div class="container-fluid position-relative">
+					<div class="row">
+
+						<div class="col-5 col-md-8 ml-auto mr-0">
+							<div class="tm-site-nav">
+								<nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
+									<button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed"
+										type="button" data-toggle="collapse" data-target="#navbar-nav"
+										aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+										<span>
+											<i class="fas fa-bars tm-menu-closed-icon"></i>
+											<i class="fas fa-times tm-menu-opened-icon"></i>
+										</span>
+									</button>
+									<div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+										<ul class="navbar-nav text-uppercase">
+											<li class="nav-item active">
+												<a class="nav-link tm-nav-link" href="index.html">Blogs <span
+														class="sr-only">(current)</span></a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link tm-nav-link" href="createBlog.html">Writer?</a>
+											</li>
+										</ul>
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tm-welcome-container tm-fixed-header tm-fixed-header-3">
+				<div class="text-center">
+					<p id="blogTitle"
+						class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">
+
+
+						<span id="authorName" style="font-size: 0.6em; float: right;"></span>
+					</p>
+
+				</div>
+			</div>
+
+			<div id="tm-fixed-header-bg"></div> <!-- Header image -->
+
+		</div>
+
+		<!-- Page content -->
+		<div class="container-fluid">
+			<div class="mx-auto tm-content-container">
+				<main>
+					<div class="row mb-5 pb-5">
+						<!-- <div class="col-xl-8 col-lg-7">
+							 Video description 
+							<div class="tm-video-description-box"> -->
+						<!-- <div class="row mt-3 mb-5 pb-3"> -->
+						<div class="col-12">
+							<div class="mx-auto tm-about-text-container px-3">
+								<p id="blogContent" class="mb-4">
+								</p>
+								<br>
+								<br>
+								<p id="authorEmail" class="tm-text-secondary"></p>
+							</div>
+
+
+						</div>
+					</div>
+					<!-- RELATED CONTENT -->
+					<!-- <div class="row pt-4 pb-5">
+						<div class="col-12">
+							<h2 class="mb-5 tm-text-primary">Related Videos for You</h2>
+							<div class="row tm-catalog-item-list">
+								<div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+									<div class="position-relative tm-thumbnail-container">
+										<img src="img/tn-01.jpg" alt="Image" class="img-fluid tm-catalog-item-img">
+										<a href="video-page.html" class="position-absolute tm-img-overlay">
+											<i class="fas fa-play tm-overlay-icon"></i>
+										</a>
+									</div>
+									<div class="p-3 tm-catalog-item-description">
+										<h3 class="tm-text-gray text-center tm-catalog-item-title">Nam tincidunt
+											consectetur</h3>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+									<div class="position-relative tm-thumbnail-container">
+										<img src="img/tn-02.jpg" alt="Image" class="img-fluid tm-catalog-item-img">
+										<a href="video-page.html" class="position-absolute tm-img-overlay">
+											<i class="fas fa-play tm-overlay-icon"></i>
+										</a>
+									</div>
+									<div class="p-3 tm-catalog-item-description">
+										<h3 class="tm-text-gray text-center tm-catalog-item-title">Praesent posuere
+											rhoncus</h3>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+									<div class="position-relative tm-thumbnail-container">
+										<img src="img/tn-03.jpg" alt="Image" class="img-fluid tm-catalog-item-img">
+										<a href="video-page.html" class="position-absolute tm-img-overlay">
+											<i class="fas fa-play tm-overlay-icon"></i>
+										</a>
+									</div>
+									<div class="p-3 tm-catalog-item-description">
+										<h3 class="tm-text-gray text-center tm-catalog-item-title">Turpis massa aliquam
+										</h3>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+									<div class="position-relative tm-thumbnail-container">
+										<img src="img/tn-04.jpg" alt="Image" class="img-fluid tm-catalog-item-img">
+										<a href="video-page.html" class="position-absolute tm-img-overlay">
+											<i class="fas fa-play tm-overlay-icon"></i>
+										</a>
+									</div>
+									<div class="p-3 tm-catalog-item-description">
+										<h3 class="tm-text-gray text-center tm-catalog-item-title">Nam tincidunt
+											consectetur</h3>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+									<div class="position-relative tm-thumbnail-container">
+										<img src="img/tn-05.jpg" alt="Image" class="img-fluid tm-catalog-item-img">
+										<a href="video-page.html" class="position-absolute tm-img-overlay">
+											<i class="fas fa-play tm-overlay-icon"></i>
+										</a>
+									</div>
+									<div class="p-3 tm-catalog-item-description">
+										<h3 class="tm-text-gray text-center tm-catalog-item-title">Praesent posuere
+											rhoncus</h3>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+									<div class="position-relative tm-thumbnail-container">
+										<img src="img/tn-06.jpg" alt="Image" class="img-fluid tm-catalog-item-img">
+										<a href="video-page.html" class="position-absolute tm-img-overlay">
+											<i class="fas fa-play tm-overlay-icon"></i>
+										</a>
+									</div>
+									<div class="p-3 tm-catalog-item-description">
+										<h3 class="tm-text-gray text-center tm-catalog-item-title">Turpis massa aliquam
+										</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> -->
+				</main>
+
+
+				<footer class="row pt-5" style="background-color:rgb(207, 198, 180); height: 2%;">
+					<div class="col-12">
+						<p class="text-right">Copyright 2021 &nbsp; &nbsp;
+						</p>
+					</div>
+				</footer>
+			</div> <!-- .tm-content-container -->
+		</div>
+	</div>
+
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.tm-likes-box').click(function (e) {
+				e.preventDefault();
+				$(this).toggleClass('tm-liked');
+
+				if ($(this).hasClass('tm-liked')) {
+					$('#tm-likes-count').html('486 likes');
+				} else {
+					$('#tm-likes-count').html('485 likes');
+				}
+			});
+		});
+	</script>
+	<script>
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+			apiKey: "AIzaSyBje9am9_HikBh6Dhqi4ivSB_LBWJOxfQY",
+			authDomain: "blog-simplilearn.firebaseapp.com",
+			databaseURL: "https://blog-simplilearn-default-rtdb.asia-southeast1.firebasedatabase.app",
+			projectId: "blog-simplilearn",
+			storageBucket: "blog-simplilearn.appspot.com",
+			messagingSenderId: "695854637577",
+			appId: "1:695854637577:web:a1e721feec10577d9fced8",
+			measurementId: "G-6Q08ELBKF6"
+		};
+
+
+
+		// Initialize Firebase
+		window.onload = function () {
+			firebase.initializeApp(firebaseConfig);
+			firebase.analytics();
+			get_blog();
+		}
+		//function to laod intro text from DB
+		function get_blog() {
+			var blog_id = sessionStorage.getItem("blog_id");
+			firebase.database().ref('Blogs/' + blog_id).once('value',
+				function (snapshot) {
+					var blogTitle = snapshot.val().blog_title;
+					var blogContent = snapshot.val().blog_contenet;
+					var authorName = snapshot.val().author_name;
+					var authorEmail = snapshot.val().author_email;
+					console.log("blogTitle " + authorName);
+					setBlog(blogTitle, blogContent, authorName, authorEmail);
+				}
+			);
+		}
+
+		function setBlog(title, content, name, email) {
+			var nameP = document.getElementById("authorName");
+			var bTitle = document.getElementById("blogTitle");
+			bTitle.innerHTML = title;
+			bTitle.innerHTML += '<br>';
+			nameP.innerHTML = name;
+			bTitle.appendChild(nameP);
+			document.getElementById("blogContent").innerHTML = content;
+			document.getElementById("authorEmail").innerHTML = '<a class="tm-text-secondary" href= "mailto:'+email+'"> Contact Author: '+email+'</a>';
+		}
+	</script>
+
+</body>
+
+</html>

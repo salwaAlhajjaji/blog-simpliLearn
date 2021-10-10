@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo-video-catalog.css">
+</head>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+
+<body>
+    <div class="tm-page-wrap mx-auto">
+        <div class="position-relative">
+            <div class="potition-absolute tm-site-header">
+                <div class="container-fluid position-relative">
+                    <div class="row">
+                        <div class="col-5 col-md-8 ml-auto mr-0">
+                            <div class="tm-site-nav">
+                                <nav class="navbar navbar-expand-lg mr-0 ml-auto" id="tm-main-nav">
+                                    <button class="navbar-toggler tm-bg-black py-2 px-3 mr-0 ml-auto collapsed"
+                                        type="button" data-toggle="collapse" data-target="#navbar-nav"
+                                        aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span>
+                                            <i class="fas fa-bars tm-menu-closed-icon"></i>
+                                            <i class="fas fa-times tm-menu-opened-icon"></i>
+                                        </span>
+                                    </button>
+                                    <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                                        <ul class="navbar-nav text-uppercase">
+                                            <li class="nav-item">
+                                                <a class="nav-link tm-nav-link" href="index.html">Blogs</a>
+                                            </li>
+
+                                            <li class="nav-item active">
+                                                <a class="nav-link tm-nav-link" href="createBlog.html">Writer?<span
+                                                        class="sr-only">(current)</span></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tm-welcome-container tm-fixed-header tm-fixed-header-3">
+                <div class="text-center">
+                    <p class="pt-5 px-3 tm-welcome-text tm-welcome-text-2 mb-1 mt-lg-0 mt-5 text-white mx-auto">
+                        <!-- Let Your Hands<br>Light Up Our Minds .. -->
+                        “Start writing, no matter what. <br>The water does not flow until the faucet is turned on.”
+                        <br> - Louis L’Amour
+                    </p>
+                </div>
+            </div>
+
+            <div id="tm-fixed-header-bg"></div> <!-- Header image -->
+        </div>
+
+        <!-- Page content -->
+        <main>
+
+            <div class="container-fluid px-0">
+                <div class="mx-auto tm-content-container">
+                    <!-- <div class="row mt-3 mb-5 pb-3">
+						<div class="col-12">
+							<div class="mx-auto tm-about-text-container px-3">
+								<h2 class="tm-page-title mb-4 tm-text-primary">jjjjjjj</h2>
+                                </div>
+                                							
+						</div>
+					</div> -->
+                    <!-- <div class="mx-auto pb-3 tm-about-text-container px-3">
+                        <div class="row">
+                            <div class="col-lg-6 mb-5"> -->
+                    <div class="row mt-3 mb-5 pb-3">
+                        <div class="col-12">
+                            <div class="mx-auto tm-about-text-container px-3">
+                                <!-- <form id="contact-form" action="" method="" class="tm-contact-form">  -->
+                                <div class="form-group">
+                                    <input type="text" name="blogTitle" id="blogTitle" class="form-control rounded-0"
+                                        placeholder="Blog Title" required />
+                                </div>
+                                <div class="form-group">
+                                    <textarea rows="10" name="blogContent" id="blogContent"
+                                        class="form-control rounded-0" placeholder="Blog Content" required></textarea>
+                                </div>
+                                <div class="parallax-window parallax-window-2" data-parallax="scroll"
+                                    data-image-src="img/Typing-hands.jpg"></div>
+
+                                <br>
+                                <div class="form-group">
+                                    <input type="text" name="name" id="name" class="form-control rounded-0"
+                                        placeholder="Your Name" required />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" class="form-control rounded-0"
+                                        placeholder="Your Email" required />
+                                </div>
+                                <p id="warning" style="color:red; font-size:1em"></p>
+
+                                <div class="form-group mb-0">
+                                    <button onclick=storeBlog(); id="publish" type="submit"
+                                        class="btn btn-primary rounded-0 d-block ml-auto mr-0 tm-btn-animate tm-btn-submit tm-icon-submit"><span>Publish</span></button>
+                                </div>
+                                <!-- </form>     -->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="parallax-window parallax-window-2" data-parallax="scroll" data-image-src="img/Typing-hands.jpg"></div> -->
+
+            </div>
+            <br>
+        </main>
+
+        <footer class="row pt-5" style="background-color:rgb(207, 198, 180); height: 2%;">
+            <div class="col-12">
+                <p class="text-right">Copyright 2021 &nbsp; &nbsp;
+                </p>
+            </div>
+        </footer>
+    </div>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/parallax.min.js"></script>
+    ->
+    <script>
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBje9am9_HikBh6Dhqi4ivSB_LBWJOxfQY",
+            authDomain: "blog-simplilearn.firebaseapp.com",
+            databaseURL: "https://blog-simplilearn-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "blog-simplilearn",
+            storageBucket: "blog-simplilearn.appspot.com",
+            messagingSenderId: "695854637577",
+            appId: "1:695854637577:web:a1e721feec10577d9fced8",
+            measurementId: "G-6Q08ELBKF6"
+        };
+
+
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+
+        function storeBlog() {
+            var title = document.getElementById("blogTitle").value;
+            var content = document.getElementById("blogContent").value;
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            if (title != '' && content != '' && name != '' && email != '') {
+                var pushedRef = firebase.database().ref('Blogs/').push({
+                    blog_title: title,
+                    blog_contenet: content,
+                    author_name: name,
+                    author_email: email
+                }, function (err) {
+                    if (err) {
+                        console.log("there is error" + err)
+                    } else {
+                        //set blog id into session
+                        sessionStorage.setItem("blog_id", pushedRef.key);
+                        window.location = "blogContent.html";
+
+                    }
+                });
+            }
+            else {
+                document.getElementById('warning').innerHTML = "Please make sure filling all information";
+            }
+        }
+    </script>
+</body>
+
+</html>
