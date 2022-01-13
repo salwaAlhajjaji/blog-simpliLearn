@@ -1,4 +1,4 @@
-# SimpliLearn MEAN Stack Developer Bootcamp (First Project) - Blogs-WebApp
+# SimpliLearn MEAN Stack Developer Bootcamp (First Project) - Blogs_WebApp
 
 Develop a blog for the company where people can post articles and customers can benefit from the content.  
 
